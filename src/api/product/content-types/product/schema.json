@@ -1,0 +1,86 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "product",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "slug": {
+      "type": "uid",
+      "required": true
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
+    },
+    "discountPrice": {
+      "type": "decimal"
+    },
+    "stock": {
+      "type": "integer"
+    },
+    "stockStatus": {
+      "type": "enumeration",
+      "enum": [
+        "in-stock",
+        "out-in-stock"
+      ],
+      "default": "in-stock"
+    },
+    "imageUrl": {
+      "type": "string"
+    },
+    "isTrending": {
+      "type": "boolean"
+    },
+    "isNew": {
+      "type": "boolean"
+    },
+    "attributes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::attribute.attribute"
+    },
+    "attribute_options": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::attribute-option.attribute-option"
+    },
+    "catalogs": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::catalog.catalog",
+      "inversedBy": "products"
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "inversedBy": "products"
+    },
+    "related_products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product"
+    },
+    "variations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::variation.variation",
+      "mappedBy": "product"
+    }
+  }
+}

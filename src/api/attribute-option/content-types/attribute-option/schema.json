@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "attribute_options",
+  "info": {
+    "singularName": "attribute-option",
+    "pluralName": "attribute-options",
+    "displayName": "attribute_option"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "slug": {
+      "type": "uid",
+      "required": true
+    },
+    "name": {
+      "type": "string"
+    },
+    "attribute": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::attribute.attribute"
+    }
+  }
+}
